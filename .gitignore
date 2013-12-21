@@ -54,6 +54,9 @@ build/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+# Nuget
+packages/
+
 *_i.c
 *_p.c
 *.ilk
@@ -213,3 +216,21 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#################
+## TwinCAT
+#################
+.asd
+.bak
+.sdb
+.sym
+.tpa
+.ci
+.ri
+
+#################
+## Raven
+#################
+
+.ravendump
+.csv
