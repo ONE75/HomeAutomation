@@ -1,0 +1,62 @@
+﻿@using Cassette.Nancy
+
+@{
+  Bundles.Reference("Content/scripts");
+}
+
+
+<!doctype html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+      <title>HomeAutomation.Client</title>
+
+      <style type="text/css">
+
+        body {
+        text-align: center;
+        }
+
+      </style>
+    <title>CJL13</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1"> 	
+    </head>
+  <body>
+      <div id="home" ng-controller="homeAutomationApp.ContentController">
+          <div  ng-repeat="status in statuses">
+						<p><strong>Symbol: </strong>{{ status.Symbol }}</p>
+					    <p><strong>Status: </strong>{{ status.CurrentStatus }} </p>
+					</div>     
+      </div>
+      @Bundles.RenderScripts()		
+      <script type="text/javascript">
+
+          homeAutomationApp = {};
+
+          homeAutomationApp.module = angular.module('statusModule', []);
+
+          homeAutomationApp.ContentController = function ($scope) {
+              var pageSize = 2;
+              var pagesShown = 1;
+
+              var showLoading = function() {
+                  $.mobile.showPageLoadingMsg("a", "loading toilets", false);
+              };
+              var hideLoading = function() {
+                  $.mobile.hidePageLoadingMsg();
+              };
+
+              showLoading();
+
+              var firstStatus = { Symbol: 'L_Eiland', CurrentStatus: true };
+              var secondStatus = { Symbol: 'L_Salon', CurrentStatus: false };
+              $scope.statuses = [firstStatus,
+                  secondStatus,
+                  { Symbol: 'L_Eettafel', CurrentStatus: false },
+                  { Symbol: 'L_NogIets', CurrentStatus: true}
+
+              ];
+            };
+      </script>
+  </body>
+</html>
