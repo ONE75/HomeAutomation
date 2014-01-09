@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>\\VBOXSVR\Host\GitHub\HomeAutomation\TwinCAT\CJL13.pro</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2014-01-05T14:13:25</ChangeDate>
+		<ChangeDate>2014-01-09T22:26:03</ChangeDate>
 		<Library>
 			<Name>TcBase.lib</Name>
 			<Path>C:\TWINCAT\PLC\lib\TcBase.lib</Path>
@@ -11596,7 +11596,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10026263" Crc32="1142217098" LastChange="2014-01-04T16:14:15">Dimmers</Name>
+			<Name Decoration="10026263" Crc32="2309380194" LastChange="2014-01-09T22:13:10">Dimmers</Name>
 			<PrgInfo>
 				<CodeIndex>764</CodeIndex>
 				<Symbol>
@@ -11608,7 +11608,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10000000" Crc32="3893628971" LastChange="2013-12-09T21:37:52">MAIN</Name>
+			<Name Decoration="10000000" Crc32="2821290161" LastChange="2014-01-09T22:23:20">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>771</CodeIndex>
 			</PrgInfo>
@@ -11638,6 +11638,12 @@
 				<Symbol>
 					<Name>Ventilation.FB_Ventilation_OnOff</Name>
 				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="10000000" Crc32="2588715379" LastChange="2014-01-09T22:25:50">BezorgFeedbackAanLeds</Name>
+			<PrgInfo>
+				<CodeIndex>778</CodeIndex>
 			</PrgInfo>
 		</Program>
 	</Programs>
@@ -13405,32 +13411,24 @@
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.PushButton_Gang_A</Name>
-			<Type Decoration="100423D5">FB_Toggle</Type>
+			<Name>.IsAllesUitInAchterbouw</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[feedback over lichtstatus achterbouw]]>
+			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>1521</IOffset>
-			<BitSize>48</BitSize>
+			<IOffset>26677</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">.PushButton_Gang_B</Name>
-			<Type Decoration="100A6F21">FB_Click</Type>
+			<Name>.IsAllesUitInSalon</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[feedback over lichtstatus salon]]>
+			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>1527</IOffset>
-			<BitSize>232</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>.PushButton_Gang_C</Name>
-			<Type Decoration="100423D5">FB_Toggle</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>1556</IOffset>
-			<BitSize>48</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.PushButton_Gang_D</Name>
-			<Type Decoration="100A6F21">FB_Click</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>1562</IOffset>
-			<BitSize>232</BitSize>
+			<IOffset>26678</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Static="Output">.LED_Rolluik_Voorgevel_Up</Name>
@@ -13545,15 +13543,26 @@
 			<Name Static="Input" TaskPrio="1">.DK_Toilet</Name>
 			<Type>BOOL</Type>
 			<Comment>
-				<![CDATA[centrale kolom keuken]]>
+				<![CDATA[D1 / centrale kolom keuken - 1 / 6V]]>
 			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">160</IOffset>
 			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (CX1100)^CX1100-KB^Term 2 (KL1859)^Channel 5^Input]]>
+					</Value>
+				</Property>
+			</Properties>
 		</Symbol>
 		<Symbol>
 			<Name Static="Input" TaskPrio="1">.DK_Kolom1_A</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Eiland]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">128</IOffset>
 			<BitSize>1</BitSize>
@@ -13569,6 +13578,9 @@
 		<Symbol>
 			<Name Static="Input" TaskPrio="1">.DK_Kolom1_B</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Eettafel DIMMER]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">129</IOffset>
 			<BitSize>1</BitSize>
@@ -13584,6 +13596,9 @@
 		<Symbol>
 			<Name Static="Input" TaskPrio="1">.DK_Kolom1_C</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Waskot]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">130</IOffset>
 			<BitSize>1</BitSize>
@@ -13599,6 +13614,9 @@
 		<Symbol>
 			<Name Static="Input" TaskPrio="1">.DK_Kolom1_D</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Grid IN - Bureau]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">131</IOffset>
 			<BitSize>1</BitSize>
@@ -13614,6 +13632,9 @@
 		<Symbol>
 			<Name Static="Input" TaskPrio="1">.DK_Kolom1_E</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Dampkap]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">132</IOffset>
 			<BitSize>1</BitSize>
@@ -13642,8 +13663,11 @@
 			</Properties>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.DK_Kolom2_A</Name>
+			<Name Static="Input">.DK_Kolom2_A</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Renson Eco]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">134</IOffset>
 			<BitSize>1</BitSize>
@@ -13651,6 +13675,9 @@
 		<Symbol>
 			<Name Static="Input">.DK_Kolom2_B</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Renson HDC]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">135</IOffset>
 			<BitSize>1</BitSize>
@@ -13658,6 +13685,9 @@
 		<Symbol>
 			<Name Static="Input">.DK_Kolom2_C</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Renson Boost/Nightcooling]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">136</IOffset>
 			<BitSize>1</BitSize>
@@ -13665,22 +13695,45 @@
 		<Symbol>
 			<Name Static="Input">.DK_Kolom2_D</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Renson Empty House]]>
+			</Comment>
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">137</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input">.DK_Kolom2_E</Name>
+			<Name Static="Input" TaskPrio="1">.DK_Salon_A</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Wandlampen zetel DIMMER]]>
+			</Comment>
 			<IGroup>61473</IGroup>
-			<IOffset VarConfig="Changeable">138</IOffset>
+			<IOffset VarConfig="Changeable">192</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input">.DK_Kolom2_F</Name>
+			<Name Static="Input">.DK_Salon_B</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Rolluik voorgevel]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">193</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.DK_Salon_C</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
-			<IOffset VarConfig="Changeable">139</IOffset>
+			<IOffset VarConfig="Changeable">194</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.DK_Salon_D</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">195</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
@@ -13882,7 +13935,7 @@
 			<Name Static="Output" TaskPrio="1">.HealthBox</Name>
 			<Type>BOOL</Type>
 			<Comment>
-				<![CDATA[Renson Healthbox]]>
+				<![CDATA[230v Renson Healthbox]]>
 			</Comment>
 			<IGroup>61489</IGroup>
 			<IOffset VarConfig="Changeable">384</IOffset>
@@ -13897,11 +13950,22 @@
 			</Properties>
 		</Symbol>
 		<Symbol>
+			<Name Static="Output" TaskPrio="1">.DK_Kolom1_LED</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">416</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.DK_Salon_LED</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">417</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
 			<Name TaskPrio="1">.Button_Kolom1_A</Name>
 			<Type Decoration="100A6F21">FB_Click</Type>
-			<Comment>
-				<![CDATA[DK_Kolom1_B]]>
-			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1978</IOffset>
 			<BitSize>232</BitSize>
@@ -13935,17 +13999,66 @@
 			<BitSize>232</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.Button_Kolom2_B</Name>
-			<Type Decoration="100A6F21">FB_Click</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>2123</IOffset>
-			<BitSize>232</BitSize>
-		</Symbol>
-		<Symbol>
 			<Name TaskPrio="1">.Click_Toilet</Name>
 			<Type Decoration="100A6F21">FB_Click</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>26648</IOffset>
+			<BitSize>232</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.Click_Salon_A</Name>
+			<Type Decoration="100A6F21">FB_Click</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>26679</IOffset>
+			<BitSize>232</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.Click_Salon_B</Name>
+			<Type Decoration="100A6F21">FB_Click</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>26708</IOffset>
+			<BitSize>232</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.Click_Salon_C</Name>
+			<Type Decoration="100A6F21">FB_Click</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>26737</IOffset>
+			<BitSize>232</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.Click_Salon_D</Name>
+			<Type Decoration="100A6F21">FB_Click</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>26766</IOffset>
+			<BitSize>232</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.PushButton_Gang_A</Name>
+			<Type Decoration="100423D5">FB_Toggle</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1521</IOffset>
+			<BitSize>48</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.PushButton_Gang_B</Name>
+			<Type Decoration="100A6F21">FB_Click</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1527</IOffset>
+			<BitSize>232</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.PushButton_Gang_C</Name>
+			<Type Decoration="100423D5">FB_Toggle</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1556</IOffset>
+			<BitSize>48</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.PushButton_Gang_D</Name>
+			<Type Decoration="100A6F21">FB_Click</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1562</IOffset>
 			<BitSize>232</BitSize>
 		</Symbol>
 		<Symbol>
