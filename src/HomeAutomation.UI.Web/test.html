@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.min.js"></script>
+    <script src="Controllers/DefaultController.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+</head>
+<body ng-controller="defaultController">
+
+
+<div class="container">
+    <div class="page-header">
+        <h1>{{Title}} <small>Today it's {{DateAndHour}}</small></h1>
+        <p class="lead">You have no appointments today</p>
+        <p>This is just normal text</p>
+    </div>
+<p>
+    <button type="button" class="btn btn-default btn-lg ">
+        Default Button
+    </button>
+    <button type="button" class="btn btn-default btn-lg active">
+        Active Button
+    </button>
+</p>
+<p>
+    <button type="button" class="btn btn-primary btn-lg ">
+        Primary button
+    </button>
+    <button type="button" class="btn btn-primary btn-lg active">
+        Active Primary button
+    </button>
+</p>
+    <div class="container">    <div class="row" >       <div class="col-xs-6 col-sm-3"           style="background-color: #dedef8;          box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>       </div>       <div class="col-xs-6 col-sm-3"           style="background-color: #dedef8;box-shadow:           inset 1px -1px 1px #444, inset -1px 1px 1px #444;">          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut              enim ad minim veniam, quis nostrud exercitation ullamco laboris              nisi ut aliquip ex ea commodo consequat.          </p>          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do              eiusmod tempor incididunt ut.           </p>       </div>
+        <div class="clearfix visible-xs"></div>
+        <div class="col-xs-6 col-sm-3"           style="background-color: #dedef8;          box-shadow:inset 1px -1px 1px #444, inset -1px 1px 1px #444;">          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco              laboris nisi ut aliquip ex ea commodo consequat.           </p>       </div>       <div class="col-xs-6 col-sm-3"           style="background-color: #dedef8;box-shadow:           inset 1px -1px 1px #444, inset -1px 1px 1px #444;">          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut              enim ad minim           </p>       </div>    </div> </div>
+</div>
+</body>
+</html>
